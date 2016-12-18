@@ -1,22 +1,33 @@
 <%= form_for(father) do |f| %>
-  <% if father.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(father.errors.count, "error") %> prohibited this father from being saved:</h2>
+<% if father.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(father.errors.count, "error") %>
+        prohibited this father from being saved:</h2>
 
-      <ul>
-      <% father.errors.full_messages.each do |message| %>
+    <ul>
+        <% father.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <% end %>
+    </ul>
+</div>
+<% end %>
 
-  <div class="field">
+<div class="field">
     <%= f.label :f_name %>
     <%= f.text_field :f_name %>
-  </div>
+</div>
 
-  <div class="actions">
+<h2>Sons</h2>
+<%= f.fields_for :sons do |sons| %>
+<div class="sons_fields">
+    <div class="field">
+        <%= sons.label :s_name %><br>
+        <%= sons.text_field :s_name %>
+    </div>
+</div>
+<% end %>
+
+<div class="actions">
     <%= f.submit %>
-  </div>
+</div>
 <% end %>

@@ -15,10 +15,12 @@ class FathersController < ApplicationController
   # GET /fathers/new
   def new
     @father = Father.new
+    @father.sons.build
   end
 
   # GET /fathers/1/edit
   def edit
+    @father.sons.build
   end
 
   # POST /fathers
@@ -69,6 +71,6 @@ class FathersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def father_params
-      params.require(:father).permit(:f_name)
+      params.require(:father).permit(:f_name, sons_attributes: [:id, :s_name])
     end
 end
