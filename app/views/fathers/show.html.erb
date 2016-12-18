@@ -1,9 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>F name:</strong>
+  <strong>Fathers name:</strong>
   <%= @father.f_name %>
 </p>
+
+<h2>Sons</h2>
+<% if @father.sons.any? %>
+<ul>
+    <% @father.sons.each do |son| %>
+    <li><%= link_to son.s_name, son %></li>
+    <% end %>
+</ul>
+<% else %>
+<p>none available</p>
+<% end %>
 
 <%= link_to 'Edit', edit_father_path(@father) %> |
 <%= link_to 'Back', fathers_path %>
