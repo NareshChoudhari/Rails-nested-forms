@@ -1,7 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Scaffolding nesting forms and answering at SO on the next post:
+http://stackoverflow.com/a/41202591/6509507
 
 
 * Ruby version 2.3.1
